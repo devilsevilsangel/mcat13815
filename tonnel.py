@@ -39,6 +39,7 @@ if machine_code in hash_values_list:
     from telethon.tl.types import InputBotAppShortName
     import requests
     import time
+    print("Oxirgi kod yangilangan vaqti 01.25.2025 9:13 PM")
 
     phonecsv = "spamemas"
     with open(f'{phonecsv}.csv', 'r') as f:
