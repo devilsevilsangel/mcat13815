@@ -39,7 +39,7 @@ if machine_code in hash_values_list:
     from telethon.tl.types import InputBotAppShortName
     import requests
     import time
-    print("Oxirgi kod yangilangan vaqti 01.26.2025 12:49 PM")
+    print("Oxirgi kod yangilangan vaqti 01.26.2025 12:58 PM")
 
     phonecsv = "spamemas"
     with open(f'{phonecsv}.csv', 'r') as f:
@@ -93,34 +93,29 @@ if machine_code in hash_values_list:
                 auth_url = web_view.url.replace('tgWebAppVersion=7.0', 'tgWebAppVersion=8.0')
                 init_data = unquote(auth_url.split('tgWebAppData=', 1)[1].split('&tgWebAppVersion', 1)[0])
                 
-                headers = {
-                    "authority": "gifts.tonnel.network",
-                    "method": "POST",
-                    "path": "/api/balance/info",
-                    "scheme": "https",
-                    "accept": "*/*",
-                    "accept-encoding": "gzip, deflate, br, zstd",
-                    "accept-language": "en-GB,en;q=0.9,en-US;q=0.8",
-                    "content-length": "660",
-                    "content-type": "application/json",
-                    "origin": "https://tonnel-gift.vercel.app",
-                    "priority": "u=1, i",
-                    "referer": "https://tonnel-gift.vercel.app/",
-                    "sec-ch-ua": '"Microsoft Edge";v="131", "Chromium";v="131", "Not_A Brand";v="24", "Microsoft Edge WebView2";v="131"',
-                    "sec-ch-ua-mobile": "?0",
-                    "sec-ch-ua-platform": '"Windows"',
-                    "sec-fetch-dest": "empty",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-site": "cross-site",
-                    'user-agent': fake_useragent.UserAgent().random,
-                }
+                
                 jsondata = {
                     "authData": init_data,
                     "giveAwayId": current_start_param
                 }
+                
+                headers = {
+                    "authority": "gifts.tonnel.network",
+                    "accept": "*/*",
+                    "accept-encoding": "gzip, deflate, br, zstd",
+                    "accept-language": "en-US,en;q=0.9",
+                    "content-length": str(len(jsondata)),
+                    "content-type": "application/json",
+                    "origin": "https://tonnel-gift.vercel.app",
+                    "referer": "https://tonnel-gift.vercel.app/",
+                    "sec-fetch-dest": "empty",
+                    "sec-fetch-mode": "cors",
+                    "sec-fetch-site": "cross-site",
+                    "user-agent": fake_useragent.UserAgent().random,  # Random User-Agent
+                }
                 response = requests.post("https://gifts.tonnel.network/api/giveaway/info", headers=headers, json=jsondata, timeout=20)
                 print("Status code:", response.status_code)
-                print("Response text:", response.text)
+                #print("Response text:", response.text)
                 if response.status_code == 200:
                     response_data = response.json()
                     
