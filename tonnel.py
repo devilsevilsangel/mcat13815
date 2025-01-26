@@ -39,7 +39,7 @@ if machine_code in hash_values_list:
     from telethon.tl.types import InputBotAppShortName
     import requests
     import time
-    print("Oxirgi kod yangilangan vaqti 01.26.2025 12:58 PM")
+    print("Oxirgi kod yangilangan vaqti 01.26.2025 1:10 PM")
 
     phonecsv = "spamemas"
     with open(f'{phonecsv}.csv', 'r') as f:
@@ -100,19 +100,13 @@ if machine_code in hash_values_list:
                 }
                 
                 headers = {
-                    "authority": "gifts.tonnel.network",
-                    "accept": "*/*",
-                    "accept-encoding": "gzip, deflate, br, zstd",
-                    "accept-language": "en-US,en;q=0.9",
-                    "content-length": str(len(jsondata)),
-                    "content-type": "application/json",
-                    "origin": "https://tonnel-gift.vercel.app",
-                    "referer": "https://tonnel-gift.vercel.app/",
-                    "sec-fetch-dest": "empty",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-site": "cross-site",
-                    "user-agent": fake_useragent.UserAgent().random,  # Random User-Agent
+                    "Content-Type": "application/json",
+                    "User-Agent": fake_useragent.UserAgent().random,
+                    "Accept": "*/*",
+                    "Origin": "https://tonnel-gift.vercel.app",
+                    "Referer": "https://tonnel-gift.vercel.app/",
                 }
+
                 response = requests.post("https://gifts.tonnel.network/api/giveaway/info", headers=headers, json=jsondata, timeout=20)
                 print("Status code:", response.status_code)
                 #print("Response text:", response.text)
