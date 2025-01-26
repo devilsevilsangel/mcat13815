@@ -119,6 +119,8 @@ if machine_code in hash_values_list:
                     "giveAwayId": current_start_param
                 }
                 response = requests.post("https://gifts.tonnel.network/api/giveaway/info", headers=headers, json=jsondata, timeout=20)
+                print("Status code:", response.status_code)
+                print("Response text:", response.text)
                 if response.status_code == 200:
                     response_data = response.json()
                     
