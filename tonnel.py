@@ -39,7 +39,7 @@ if machine_code in hash_values_list:
     from telethon.tl.types import InputBotAppShortName
     import requests
     import time
-    print("Oxirgi kod yangilangan vaqti 01.26.2025 1:10 PM")
+    print("Oxirgi kod yangilangan vaqti 01.25.2025 9:13 PM")
 
     phonecsv = "spamemas"
     with open(f'{phonecsv}.csv', 'r') as f:
@@ -101,7 +101,7 @@ if machine_code in hash_values_list:
                 
                 headers = {
                     "Content-Type": "application/json",
-                    "User-Agent": fake_useragent.UserAgent().random,
+                    "User-Agent": "Mozilla/5.0 (Linux; Android 11; SM-G981B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.105 Mobile Safari/537.36",
                     "Accept": "*/*",
                     "Origin": "https://tonnel-gift.vercel.app",
                     "Referer": "https://tonnel-gift.vercel.app/",
