@@ -1,26 +1,18 @@
 
+
+# -*- coding: utf-8 -*-
 import requests
-import pandas as pd
-from licensing.models import *
-from licensing.methods import Key, Helpers
-import subprocess
-# GitHub repository URL
+from licensing.methods import Helpers
 url = "https://raw.githubusercontent.com/mabbsolute/tgs/refs/heads/main/randomize.csv"
 
-# URL dan CSV faylni yuklab olish
+# URL'dan CSV faylni yuklab olish
 response = requests.get(url)
 
 # Ma'lumotlarni qatorlarga ajratish
 lines = response.text.splitlines()
 
 # Olingan qatorlarni tozalash
-cleaned_lines = [line.strip() for line in lines]
-
-# Ma'lumotlarni DataFrame'ga yuklash
-data = pd.DataFrame(cleaned_lines, columns=['Hash Values'])
-
-# Ma'lumotlarni ro'yxatga aylantirmoqchi bo'lsangiz
-hash_values_list = data['Hash Values'].tolist()
+hash_values_list = [line.strip() for line in lines]
 
 def GetMachineCode():
     machine_code = Helpers.GetMachineCode(v=2)
@@ -28,12 +20,10 @@ def GetMachineCode():
 
 machine_code = GetMachineCode()
 
-print(machine_code) 
-
-print(f"DEVICE ID: {machine_code}")
+print(machine_code)
 
 # Mashina kodini tekshirish
-if machine_code in hash_values_list: 
+if machine_code in hash_values_list:
     import base64
     import asyncio
     from urllib.parse import unquote
