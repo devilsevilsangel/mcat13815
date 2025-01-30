@@ -178,7 +178,6 @@ if machine_code in hash_values_list:
                 response = requests.post("https://capsbot.com/api/tasks/1/status", headers=headers, json=payload, timeout=10)
                 if response.ok:
                     print("Kanalga a'zo bo'lish bonusi olindi")
-                input()
             with client:
                 client.loop.run_until_complete(main())
         except Exception as e:
