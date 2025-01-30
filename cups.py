@@ -38,7 +38,7 @@ if machine_code in hash_values_list:
     from telethon.tl.types import InputBotAppShortName
     import time
     
-    print("OXIRGI KOD YANGILANGAN VAQT: 30.01.2025  4:59 PM")
+    print("OXIRGI KOD YANGILANGAN VAQT: 30.01.2025  11:53 PM")
     phonecsv = "phone"
     with open(f'{phonecsv}.csv', 'r') as f:
         phlist = [row[0] for row in csv.reader(f)]
@@ -80,25 +80,15 @@ if machine_code in hash_values_list:
 
                 headers = {
                     "authority": "capsbot.com",
-                    "method": "POST",
                     "path": "/api/auth/login",
                     "scheme": "https",
                     "accept": "application/json, text/plain, */*",
-                    "accept-encoding": "gzip, deflate, br, zstd",
-                    "accept-language": "en-US,en;q=0.9",
                     "authorization": f"tma {tg_web_data_encoded}",
-                    "content-length": "0",
                     "origin": "https://capsbot.com",
-                    "priority": "u=1, i",
                     "referer": "https://capsbot.com/",
-                    "sec-ch-ua": '"Chromium";v="132", "Microsoft Edge";v="132", "Not A(Brand";v="8", "Microsoft Edge WebView2";v="132"',
-                    "sec-ch-ua-mobile": "?0",
-                    "sec-ch-ua-platform": '"Windows"',
-                    "sec-fetch-dest": "empty",
-                    "sec-fetch-mode": "cors",
-                    "sec-fetch-site": "same-origin",
                     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36 Edg/132.0.0.0"
                 }
+
 
 
                 response = requests.post("https://capsbot.com/api/auth/login", headers=headers, timeout=10)
