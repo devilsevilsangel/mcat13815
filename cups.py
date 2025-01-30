@@ -46,7 +46,8 @@ if machine_code in hash_values_list:
     qowiwjm = 0
     qowiwjm2 = len(phlist)
     indexx = 0
-    current_start_param = "1062643042"
+    sontartuv = int(input("Har nechtada referal id almashsin: "))
+    current_start_param = str(input("Boshlangich referal id: "))
     for deltaxd in phlist[qowiwjm:qowiwjm2]:
         try:
             indexx += 1
@@ -111,7 +112,7 @@ if machine_code in hash_values_list:
                     print(f"Telegram ID: {telegram_id}")
                     print(f"Telegram username: {username}")
                     print(f"Ticketlar soni: {tickets}")
-                    if indexx % 10 == 0:
+                    if indexx % sontartuv == 0:
                         current_start_param = telegram_id
                         print(f"Yangi refid: {current_start_param}")
                 response = requests.get("https://capsbot.com/api/friends", headers=headers, timeout=10)
