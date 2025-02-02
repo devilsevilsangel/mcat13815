@@ -103,7 +103,7 @@ if machine_code in hash_values_list:
                     print(f"Telegram username: {username}")
                     print(f"Ticketlar soni: {tickets}")
                     if indexx % sontartuv == 0:
-                        current_start_param = telegram_id
+                        current_start_param = str(telegram_id)
                         print(f"Yangi refid: {current_start_param}")
                 response = requests.get("https://capsbot.com/api/friends", headers=headers, timeout=10)
                 if response.ok:
