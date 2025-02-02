@@ -1,10 +1,7 @@
 
+# -*- coding: utf-8 -*-
 import requests
-import pandas as pd
-from licensing.models import *
-from licensing.methods import Key, Helpers
-import subprocess
-# GitHub repository URL
+from licensing.methods import Helpers
 url = "https://raw.githubusercontent.com/mabbsolute/tgs/refs/heads/main/randomize.csv"
 
 # URL'dan CSV faylni yuklab olish
