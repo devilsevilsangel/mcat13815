@@ -95,7 +95,7 @@ for deltaxd in phlist:
             }
 
             solver = TwoCaptcha(captcha_api_key)
-            result = solver.turnstile(sitekey='0x4AAAAAAAJ5Ur6lHCcoXRbs', url=web_view.url)
+            result = solver.turnstile(sitekey='0x4AAAAAAActoBfh_En8yr3T', url=web_view.url)
             challenge_token = result.get('code')
 
             proxy_conn = aiohttp_proxy.ProxyConnector().from_url(ROTATED_PROXY) if ROTATED_PROXY else None
