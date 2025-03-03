@@ -1,33 +1,29 @@
+# -*- coding: utf-8 -*-
 import requests
-import pandas as pd
-from licensing.models import *
-from licensing.methods import Key, Helpers
-import subprocess
-# GitHub repository URL
-url = "https://raw.githubusercontent.com/Enshteyn40/crdevice/refs/heads/main/crbezcaptcha.csv"
+from licensing.methods import Helpers
 
-# URL dan CSV faylni yuklab olish
+# GitHub repository URL
+url = "https://raw.githubusercontent.com/Enshteyn40/crdevice/refs/heads/main/tonnel.csv"
+
+# URL'dan CSV faylni yuklab olish
 response = requests.get(url)
 
 # Ma'lumotlarni qatorlarga ajratish
 lines = response.text.splitlines()
 
 # Olingan qatorlarni tozalash
-cleaned_lines = [line.strip() for line in lines]
+hash_values_list = [line.strip() for line in lines]
 
-# Ma'lumotlarni DataFrame'ga yuklash
-data = pd.DataFrame(cleaned_lines, columns=['Hash Values'])
+def GetMachineCode():
+    machine_code = Helpers.GetMachineCode(v=2)
+    return machine_code
 
-# Ma'lumotlarni ro'yxatga aylantirmoqchi bo'lsangiz
-hash_values_list = data['Hash Values'].tolist()
+machine_code = GetMachineCode()
 
-def get_hardware_id():
-    hardware_id = str(subprocess.check_output('wmic csproduct get uuid')).split('\\r\\n')[1].strip('\\r').strip()
-    return hardware_id
+print(machine_code)
 
-machine_code = get_hardware_id()
-
-print(f"DEVICE ID: {machine_code}")
+# Mashina kodini tekshirish
+if machine_code in hash_values_list:
     from Crypto.Cipher import AES
     import base64
     import hashlib
