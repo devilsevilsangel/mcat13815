@@ -95,15 +95,17 @@ for deltaxd in phlist:
             }
 
             solver = TwoCaptcha(captcha_api_key)
-            result = solver.turnstile(sitekey='0x4AAAAAAActoBfh_En8yr3T', url=web_view.url)
+            result = solver.turnstile(sitekey='0x4AAAAAAAJ5Ur6lHCcoXRbs', url=web_view.url)
             challenge_token = result.get('code')
+            
+            pallangetoken = "caprcharerror"
 
             proxy_conn = aiohttp_proxy.ProxyConnector().from_url(ROTATED_PROXY) if ROTATED_PROXY else None
             async with aiohttp.ClientSession(headers=headers, connector=proxy_conn) as http_client:
                 try:
                     async with http_client.post(
                         'https://concub.site/participate',
-                        json={'captcha': challenge_token, 'data': init_data, 'id': start_param, 'uid': ozimninid}
+                        json={'captcha': pallangetoken, 'data': init_data, 'id': start_param, 'uid': ozimninid}
                     ) as response:
                         response_json = await response.json()
                         print(response_json)
