@@ -27,7 +27,7 @@ if machine_code in hash_values_list:
     from Crypto.Cipher import AES
     import base64
     import hashlib
-    import aiohttp 
+    import cloudscraper
     import os
     import time
     from telethon import functions
@@ -44,7 +44,7 @@ if machine_code in hash_values_list:
     import time
     from Crypto.Util.Padding import pad, unpad
     
-    print("Oxirgi kod yanilangan vaqti 11.03.2025 3:18 AM")
+    print("Oxirgi kod yanilangan vaqti 11.03.2025 1:29 AM")
     phonecsv = "spamemas"
     with open(f'{phonecsv}.csv', 'r') as f:
         phlist = [row[0] for row in csv.reader(f)]
@@ -106,7 +106,7 @@ if machine_code in hash_values_list:
                         "Origin": "https://tonnel-gift.vercel.app",
                         "Referer": "https://tonnel-gift.vercel.app/"
                     }
-                async with aiohttp.ClientSession(headers=headers) as http_client:
+                async with cloudscraper.create_scraper(headers=headers) as http_client:
                     bot_entity = await client.get_entity("Tonnel_Network_bot")
                     bot = InputUser(user_id=bot_entity.id, access_hash=bot_entity.access_hash)
                     bot_app = InputBotAppShortName(bot_id=bot, short_name="gifts")
