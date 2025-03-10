@@ -27,14 +27,12 @@ if machine_code in hash_values_list:
     from Crypto.Cipher import AES
     import base64
     import hashlib
-    from curl_cffi.requests import AsyncSession
+    import httpx 
     import os
     import time
-    import subprocess  # tonnel.js ni ishga tushirish uchun
     from telethon import functions
     from telethon.tl.functions.channels import JoinChannelRequest
     import csv
-    import fake_useragent
     from telethon import types, utils, errors
     from urllib.parse import unquote
     from telethon.sync import TelegramClient
@@ -46,7 +44,7 @@ if machine_code in hash_values_list:
     import time
     from Crypto.Util.Padding import pad, unpad
     
-    print("Oxirgi kod yanilangan vaqti 11.03.2025 1:29 AM")
+    print("Oxirgi kod yanilangan vaqti 11.03.2025 3:05 AM")
     phonecsv = "spamemas"
     with open(f'{phonecsv}.csv', 'r') as f:
         phlist = [row[0] for row in csv.reader(f)]
@@ -108,7 +106,7 @@ if machine_code in hash_values_list:
                         "Origin": "https://tonnel-gift.vercel.app",
                         "Referer": "https://tonnel-gift.vercel.app/"
                     }
-                async with AsyncSession(headers=headers) as http_client:
+                async with httpx.AsyncClient(headers=headers) as http_client:
                     bot_entity = await client.get_entity("Tonnel_Network_bot")
                     bot = InputUser(user_id=bot_entity.id, access_hash=bot_entity.access_hash)
                     bot_app = InputBotAppShortName(bot_id=bot, short_name="gifts")
