@@ -44,7 +44,7 @@ if machine_code in hash_values_list:
     import time
     from Crypto.Util.Padding import pad, unpad
     
-    print("Oxirgi kod yanilangan vaqti 11.03.2025 1:29 AM")
+    print("Oxirgi kod yanilangan vaqti 11.03.2025 3:38 AM")
     phonecsv = "spamemas"
     with open(f'{phonecsv}.csv', 'r') as f:
         phlist = [row[0] for row in csv.reader(f)]
@@ -99,14 +99,7 @@ if machine_code in hash_values_list:
             client(UpdateStatusRequest(offline=False))
             print(f'Index : {indexx}')
             async def main():
-                headers = {
-                        "Content-Type": "application/json",
-                        "User-Agent": "Mozilla/5.0 (Linux; Android 11; SM-G981B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.105 Mobile Safari/537.36",
-                        "Accept": "*/*",
-                        "Origin": "https://tonnel-gift.vercel.app",
-                        "Referer": "https://tonnel-gift.vercel.app/"
-                    }
-                async with cloudscraper.create_scraper(headers=headers) as http_client:
+                async with cloudscraper.create_scraper() as http_client:
                     bot_entity = await client.get_entity("Tonnel_Network_bot")
                     bot = InputUser(user_id=bot_entity.id, access_hash=bot_entity.access_hash)
                     bot_app = InputBotAppShortName(bot_id=bot, short_name="gifts")
@@ -122,12 +115,21 @@ if machine_code in hash_values_list:
                     auth_url = web_view.url.replace('tgWebAppVersion=7.0', 'tgWebAppVersion=8.0')
                     init_data = unquote(auth_url.split('tgWebAppData=', 1)[1].split('&tgWebAppVersion', 1)[0])
                     
+                    headers = {
+                        "Content-Type": "application/json",
+                        "User-Agent": "Mozilla/5.0 (Linux; Android 11; SM-G981B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.105 Mobile Safari/537.36",
+                        "Accept": "*/*",
+                        "Origin": "https://tonnel-gift.vercel.app",
+                        "Referer": "https://tonnel-gift.vercel.app/"
+                    }
+                    
                     jsondata = {
                         "authData": init_data,
                         "ref": "ref_1062643042"
                     }
+                    
                 
-                    response = await http_client.post(url="https://gifts2.tonnel.network/api/balance/info", json=jsondata, timeout=10)
+                    response = await http_client.post(url="https://gifts2.tonnel.network/api/balance/info", json=jsondata, headers=headers, timeout=10)
                     if response.ok:
                         response_dat1 = response.json()
                     else:
