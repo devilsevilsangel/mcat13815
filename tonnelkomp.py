@@ -52,7 +52,7 @@ if machine_code in hash_values_list:
     import requests
     import time
     from Crypto.Util.Padding import pad, unpad
-    phonecsv = "phone"
+    phonecsv = "spamemas"
     with open(f'{phonecsv}.csv', 'r') as f:
         phlist = [row[0] for row in csv.reader(f)]
     print('Spam bolmagan raqamlar: ' + str(len(phlist)))
