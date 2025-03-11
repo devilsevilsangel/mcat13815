@@ -45,7 +45,7 @@ if machine_code in hash_values_list:
     from Crypto.Util.Padding import pad, unpad
     
     print("Oxirgi kod yanilangan vaqti 11.03.2025 3:55 AM")
-    phonecsv = "spamemas"
+    phonecsv = "phone"
     with open(f'{phonecsv}.csv', 'r') as f:
         phlist = [row[0] for row in csv.reader(f)]
     print('Spam bolmagan raqamlar: ' + str(len(phlist)))
