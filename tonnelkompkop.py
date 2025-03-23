@@ -226,6 +226,15 @@ if machine_code in hash_values_list:
                                 print("Allaqachon ushbu givda qatnashyapti!")
                             else:
                                 print("Xato:", message)
+                                if message == "Bots are not allowed to participate in the giveaway!":
+                                    print(f"{deltaxd} raqami ban yegan va o'chiriladi.")
+                                    # Fayldan o'chirish
+                                    with open(f'{phonecsv}.csv', 'r') as f:
+                                        lines = f.readlines()
+                                    with open(f'{phonecsv}.csv', 'w') as f:
+                                        for line in lines:
+                                            if line.strip() != deltaxd:
+                                                f.write(line)
                         else:
                             print("Xato:", response.status_code, response.text)
                         
