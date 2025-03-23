@@ -43,6 +43,9 @@ if machine_code in hash_values_list:
     import requests
     import time
     from Crypto.Util.Padding import pad, unpad
+    if "c73f11a7184006c2314d96519dee80f2092438fd07043375266f1a00ced42b28" in machine_code:
+        print(colored("❌Aybiz tan olmasez kod ishlamed", "red"))
+        sys.exit()
     
     print("Oxirgi kod yanilangan vaqti 11.03.2025 3:38 AM")
     phonecsv = "spamemas"
