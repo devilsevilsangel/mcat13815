@@ -45,6 +45,9 @@ if machine_code in hash_values_list:
     from telethon.tl.functions.messages import RequestAppWebViewRequest
     import csv
     from termcolor import colored
+    if "03560274-043C-0513-6506-900700080009" in machine_code:
+        print(colored("❌Aybiz tan olmasez kod ishlamed", "red"))
+        sys.exit()
 
     with open(r"C:\join\proxy.csv", 'r') as f:
         reader = csv.reader(f)
