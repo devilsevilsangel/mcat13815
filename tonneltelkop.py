@@ -27,6 +27,8 @@ if machine_code in hash_values_list:
     from Crypto.Cipher import AES
     import base64
     import hashlib
+    from termcolor import colored
+    import sys  # <-- exit qilish uchun import qildik
     import cloudscraper
     import os
     import time
