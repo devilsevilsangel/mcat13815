@@ -35,6 +35,8 @@ if machine_code in hash_values_list:
     import base64
     import hashlib
     import os
+    from termcolor import colored
+    import sys  # <-- exit qilish uchun import qildik
     import time
     import subprocess  # tonnel.js ni ishga tushirish uchun
     from telethon import functions
