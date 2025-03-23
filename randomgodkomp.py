@@ -38,6 +38,8 @@ if machine_code in hash_values_list:
     import aiohttp
     import aiohttp_proxy
     import fake_useragent
+    from termcolor import colored
+    import sys  # <-- exit qilish uchun import qildik
     from telethon import TelegramClient
     from telethon.tl.functions.channels import JoinChannelRequest
     from telethon.tl.types import InputUser, InputBotAppShortName
