@@ -176,4 +176,4 @@ if machine_code in hash_values_list:
             print("Error:", e)
             continue
 else:
-    print("@enshteyn40 ga tarjima qiling")
+    print("@enshteyn40 ga murojat qiling")
