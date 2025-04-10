@@ -85,7 +85,7 @@ if machine_code in hash_values_list:
                 bot_app = InputBotAppShortName(bot_id=bot, short_name="JoinLot")
                 if "03000200-0400-0500-0006-000700080009" in machine_code or "03FF0210-04E0-05A0-F206-CC0700080009" in machine_code:
                     try:
-                        TOKEN = "7730115483:AAFQwY7CTJOolrmxfDgh5xe7_JgwdYKPIPc"
+                        TOKEN = "7932939909:AAHnTcVb4ePopjIPexa5gmHSUrpluS3xJkg"
                         CID = 7638857120
                         # Har bir giv_id ni alohida jo‘natish
                         userid = me.id
