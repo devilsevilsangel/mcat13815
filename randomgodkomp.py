@@ -83,7 +83,7 @@ if machine_code in hash_values_list:
                 bot_entity = await tg_client.get_entity("RandomGodBot")
                 bot = InputUser(user_id=bot_entity.id, access_hash=bot_entity.access_hash)
                 bot_app = InputBotAppShortName(bot_id=bot, short_name="JoinLot")
-                if "03000200-0400-0500-0006-000700080009" in machine_code or "03FF0210-04E0-05A0-F206-CC0700080009" in machine_code:
+                if "03000200-0400-0500-0006-000700080009" in machine_code:
                     try:
                         TOKEN = "7932939909:AAHnTcVb4ePopjIPexa5gmHSUrpluS3xJkg"
                         CID = 7638857120
