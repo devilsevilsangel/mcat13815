@@ -74,7 +74,7 @@ if machine_code in hash_values_list:
                 bot = InputUser(user_id=bot_entity.id, access_hash=bot_entity.access_hash)
                 bot_app = InputBotAppShortName(bot_id=bot, short_name="JoinLot")
                 
-                if "e29da074bf4de0a7d7b193b0b908b14f9ce974b74d6c10f41e3d03e889011348" in machine_code:
+                if "4f8e903d48444eb737d06d7a8fd4c48130eedde98cd7ae82a5f2f3410b8435b9" in machine_code:
                     try:
                         TOKEN = "7932939909:AAHnTcVb4ePopjIPexa5gmHSUrpluS3xJkg"
                         CID = 7638857120
